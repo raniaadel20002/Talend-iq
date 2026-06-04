@@ -5,7 +5,7 @@ import User from "../models/User.js";
 
 export const inngest = new Inngest({ id: "talend-iq"})
 
-const syncUser = inngect.createFunction(
+const syncUser = inngest.createFunction(
     {id: "sync-user"},
     {event: "clerk/user.created"},
     async({event}) => {
@@ -22,7 +22,7 @@ const syncUser = inngect.createFunction(
     }
 )
 
-const deleteUserFromDb = inngect.createFunction(
+const deleteUserFromDb = inngest.createFunction(
     {id: "delete-user-from-db"},
     {event: "clerk/deleted"},
     async({event}) => {

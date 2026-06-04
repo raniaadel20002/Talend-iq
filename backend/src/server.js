@@ -1,5 +1,8 @@
 import express from "express";
-import path from "path"
+import path from "path";
+import { serve } from "inngest/express";
+
+
 import { ENV } from "./lib/env.js"; 
 import { connectDB } from "./lib/db.js";
 
@@ -8,12 +11,14 @@ const app = express();
 
 const __dirname = path.resolve()
 
+app.use("/api/inngest",serve({client:inngest,function}))
+
 app.get('/health', (req, res) => {
-    res.status(200).json({ msg: "success from api"})
+    res.status(200).json({ msg: "api is up and running"})
 });
 
 app.get('/books', (req, res) => {
-    res.status(200).json({ msg: "success from api"})
+    res.status(200).json({ msg: "this is the books api"})
 });
 
 
